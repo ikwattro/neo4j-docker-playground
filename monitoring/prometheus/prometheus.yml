@@ -1,0 +1,7 @@
+# Neo4j Single Core Scrape Config
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'neo4j-single'
+
+    static_configs:
+      - targets: ['core1:2004']
