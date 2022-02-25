@@ -1,0 +1,16 @@
+{
+    "kind": "Database",
+    "name": "users",
+    "dropIfExists": false,
+    "skipCreate": false,
+    "indexes": {
+      "fulltext" : [
+        {
+          "labels": ["Person"],
+          "properties": ["name"],
+          "name": "Person"
+        }
+      ]
+    },
+    "seeds": ["users.cypher"]
+  }
