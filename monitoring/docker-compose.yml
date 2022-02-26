@@ -1,7 +1,6 @@
 version: '3.7'
 services:
-    core1:
-        hostname: core1
+    neo4j:
         image: neo4j:${NEO4J_VERSION}
         environment:
             - NEO4J_dbms_mode=SINGLE

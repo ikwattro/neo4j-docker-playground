@@ -4,4 +4,4 @@ scrape_configs:
   - job_name: 'neo4j-single'
 
     static_configs:
-      - targets: ['core1:2004']
+      - targets: ['neo4j:2004']
