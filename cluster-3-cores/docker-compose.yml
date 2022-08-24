@@ -13,11 +13,13 @@ services:
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
-            - NEO4JLABS_PLUGINS=["apoc","graph-data-science"]
+            - NEO4JLABS_PLUGINS=["apoc-core"]
         ports:
             - 17474:7474
             - 17473:7473
             - 17687:7687
+        volumes:
+            - "./data/core1/backups:/backups"
     core2:
         hostname: core2
         image: neo4j:${NEO4J_VERSION}
@@ -31,11 +33,13 @@ services:
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
-            - NEO4JLABS_PLUGINS=["apoc","graph-data-science"]
+            - NEO4JLABS_PLUGINS=["apoc-core"]
         ports:
             - 27474:7474
             - 27473:7473
             - 27687:7687
+        volumes:
+            - "./data/core2/backups:/backups"
     core3:
         hostname: core3
         image: neo4j:${NEO4J_VERSION}
@@ -49,8 +53,10 @@ services:
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
-            - NEO4JLABS_PLUGINS=["apoc","graph-data-science"]
+            - NEO4JLABS_PLUGINS=["apoc-core"]
         ports:
             - 37474:7474
             - 37473:7473
             - 37687:7687
+        volumes:
+            - "./data/core3/backups:/backups"
