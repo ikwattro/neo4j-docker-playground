@@ -3,7 +3,7 @@ version: '3'
 # common environment settings that can be reused across all members
 x-neo4j-config-common: &neo4j-config-common
   NEO4J_AUTH: neo4j/password
-  NEO4J_server_cluster_system__database__mode: PRIMARY
+  # NEO4J_server_cluster_system__database__mode: PRIMARY
   NEO4J_initial_server_mode__constraint: NONE
   NEO4J_initial_dbms_default__primaries__count: 3
   NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
