@@ -30,7 +30,7 @@
             <DefaultRolloverStrategy fileIndex="min" max="7"/>
         </RollingRandomAccessFile>
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZ}{GMT+0} %-5p %m%n"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:org/neo4j/logging/QueryLogJsonLayout.json"/>
         </Console>
     </Appenders>
 
