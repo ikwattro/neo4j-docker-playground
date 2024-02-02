@@ -2,14 +2,16 @@ version: '3.7'
 services:
     core1:
         hostname: core1
-        image: neo4j:${NEO4J_VERSION}
+        build: .
+        cap_add:
+            - NET_ADMIN
         environment:
             - NEO4J_dbms_mode=core
             - NEO4J_dbms_connector_bolt_advertised__address=localhost:17687
             - NEO4J_dbms_default__listen__address=0.0.0.0
             - NEO4J_dbms_default__advertised__address=core1
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=3
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=3
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=2
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=2
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
@@ -22,14 +24,16 @@ services:
             - "./data/core1/backups:/backups"
     core2:
         hostname: core2
-        image: neo4j:${NEO4J_VERSION}
+        build: .
+        cap_add:
+            - NET_ADMIN
         environment:
             - NEO4J_dbms_mode=core
             - NEO4J_dbms_connector_bolt_advertised__address=localhost:27687
             - NEO4J_dbms_default__listen__address=0.0.0.0
             - NEO4J_dbms_default__advertised__address=core2
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=3
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=3
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=2
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=2
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
@@ -42,14 +46,16 @@ services:
             - "./data/core2/backups:/backups"
     core3:
         hostname: core3
-        image: neo4j:${NEO4J_VERSION}
+        build: .
+        cap_add:
+            - NET_ADMIN
         environment:
             - NEO4J_dbms_mode=core
             - NEO4J_dbms_connector_bolt_advertised__address=localhost:37687
             - NEO4J_dbms_default__listen__address=0.0.0.0
             - NEO4J_dbms_default__advertised__address=core3
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=3
-            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=3
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=2
+            - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=2
             - NEO4J_causal__clustering_initial__discovery__members=core1:5000,core2:5000,core3:5000
             - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
             - NEO4J_AUTH=neo4j/password
