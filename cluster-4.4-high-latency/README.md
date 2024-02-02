@@ -24,3 +24,9 @@ Run `docker compose up -d`
 
 - To reset to the normal latency, run the following command to the instances you modified : `docker exec cluster-44-high-latency-core1-1 tc qdisc del dev eth0 root netem`
 
+
+**Additional read replica**
+
+There is also an additional read replica configured with a pull interval of 30 seconds so you can easily
+test bookmarks by sending subsequent reads to the read replicas.
+

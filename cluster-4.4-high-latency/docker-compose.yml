@@ -66,3 +66,25 @@ services:
             - 37687:7687
         volumes:
             - "./data/core3/backups:/backups"
+    rr1:
+        hostname: rr1
+        build: .
+        cap_add:
+            - NET_ADMIN
+        environment:
+            - NEO4J_dbms_mode=READ_REPLICA
+            - NEO4J_dbms_connector_bolt_advertised__address=localhost:57687
+            - NEO4J_dbms_default__advertised__address=rr1
+            - NEO4J_causal__clustering_initial__discovery__members=core1:5000
+            # set high value for pull interval for simulating
+            # scenarios where read tx going to read replica might
+            # not have the latest tx
+            - NEO4J_causal__clustering_pull__interval=30s
+            - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+            - NEO4J_AUTH=neo4j/password
+            - NEO4J_dbms_routing_listen__address=0.0.0.0:7688
+            - NEO4JLABS_PLUGINS=["apoc","graph-data-science"]
+        ports:
+            - 57474:7474
+            - 57473:7473
+            - 57687:7687
