@@ -34,6 +34,7 @@ services:
       NEO4J_server_default__advertised__address: primary1
       NEO4J_server_cluster_advertised__address: primary1:6000
       NEO4J_server_cluster_raft_advertised__address: primary1:7000 
+      NEO4J_server_bolt_advertised__address: localhost:17687
     networks:
       - lan
     volumes:
@@ -51,6 +52,7 @@ services:
       NEO4J_server_default__advertised__address: primary2
       NEO4J_server_cluster_advertised__address: primary2:6000
       NEO4J_server_cluster_raft_advertised__address: primary2:7000
+      NEO4J_server_bolt_advertised__address: localhost:27687
     networks:
       - lan
     volumes:
@@ -68,6 +70,7 @@ services:
       NEO4J_server_default__advertised__address: primary3
       NEO4J_server_cluster_advertised__address: primary3:6000
       NEO4J_server_cluster_raft_advertised__address: primary3:7000
+      NEO4J_server_bolt_advertised__address: localhost:37687
     networks:
       - lan
     volumes:
@@ -87,6 +90,7 @@ services:
       NEO4J_server_default__advertised__address: secondary1
       NEO4J_server_cluster_advertised__address: secondary1:6000
       NEO4J_server_cluster_raft_advertised__address: secondary1:7000
+      NEO4J_server_bolt_advertised__address: localhost:47687
     networks:
       - lan
   
@@ -104,5 +108,6 @@ services:
       NEO4J_server_default__advertised__address: secondary2
       NEO4J_server_cluster_advertised__address: secondary2:6000
       NEO4J_server_cluster_raft_advertised__address: secondary2:7000
+      NEO4J_server_bolt_advertised__address: localhost:57687
     networks:
       - lan
